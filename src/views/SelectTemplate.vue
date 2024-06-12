@@ -1,6 +1,6 @@
 <template>
     <div style="width: 70%;margin: auto;">
-      <h5>Extract Data From Templates</h5>
+      <h5>Extract Data</h5>
         <div class="d-flex">
     <select class="form-select mb-3 mx-2"  v-model="selectedModel" @change="onChange">
       <option v-for="(item, index) in fieldMeta" :key="index" :value="item">

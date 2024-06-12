@@ -10,14 +10,24 @@
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link active" aria-current="page">Templates</router-link>
+       
+            <li class="nav-activeprop" v-if="route == '/'" >
+              <button class="nav-link active"  @click="runRouteChange('/')" >Templates</button>
+              <!-- <router-link to="/" class="nav-link active" @click="runFuntion" aria-current="page">Templates</router-link> -->
             </li>
-            <li class="nav-item">
-              <router-link to="/addtemplate" class="nav-link">Add Template</router-link>
+            <li class="nav-active" v-else >
+              <button class="nav-link active" @click="runRouteChange('/')" >Templates</button>
+              <!-- <router-link to="/" class="nav-link active" @click="1runFuntion" aria-current="page">Templates</router-link> -->
             </li>
-            <li class="nav-item">
-              <router-link to="/selecttemplate" class="nav-link">Extract Data From Template</router-link>
+
+            <li class="nav-activeprop" v-if="route == '/selecttemplate'">
+              <button class="nav-link active" @click="runRouteChange('/selecttemplate')"  >Extract Data</button>
+              <!-- <router-link to="/selecttemplate" @click="runFuntion" class="nav-link">Extract Data</router-link> -->
+            </li>
+            
+            <li class="nav-item" v-else>
+              <button class="nav-link active" @click="runRouteChange('/selecttemplate')"  >Extract Data</button>
+              <!-- <router-link to="/selecttemplate" @click="runFuntion" class="nav-link">Extract Data</router-link> -->
             </li>
           </ul>
         </div>
@@ -33,6 +43,33 @@
 
 <script>
 export default{
+ data(){
+  return{
+    route:'/',
+  }
+ },
+ wathch:{
+  route(newVal){
+    console.log(newVal);
+  },
+  $router(newVal){
+    console.log(newVal);
+  }
+ },
+ methods:{
+  runRouteChange(newRoute){
+    console.log(newRoute);
+    if(this.route != newRoute){
+      this.route = newRoute;
+      this.$router.push(newRoute);
+    }
+  }
+ },
+ created(){
+  this.route = this.$router.history._startLocation
+  
+ }
+
     
 }
 </script>
@@ -64,6 +101,10 @@ export default{
   color: #007bff; /* Highlight color on hover */
 }
 
+.nav-activeprop{
+  color: #007bff;
+  background-color: rgb(158, 158, 158);
+}
 @media (max-width: 767px) {
   .navbar {
     background-color: var(--bs-body-bg); /* Adjust based on your theme */
