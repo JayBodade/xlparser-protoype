@@ -2,7 +2,7 @@
   <div class="home" style="width: 70%;margin: auto;">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <h5>ALL Templates</h5>
+    <h5>All Templates</h5>
      <div v-if="templateData.length == 0 ">No Data Available</div>
      <table v-else class="table table-hover table-striped table-bordered">
             <thead class="thead-dark">
