@@ -2,11 +2,7 @@
   <div class="home" style="width: 70%;margin: auto;">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <div style="display: flex;flex-direction: row;justify-content: space-between">
-    <div style="width: 85%"> <h5>All Templates</h5></div>
-    <div style="width:15%"> <button class="btn btn-primary" @click="$router.push('/addtemplate')" style="font-size: 15px;margin-bottom: 10px">Add Template</button></div>
-   
-  </div>
+    <h5>ALL Templates</h5>
      <div v-if="templateData.length == 0 ">No Data Available</div>
      <table v-else class="table table-hover table-striped table-bordered">
             <thead class="thead-dark">
